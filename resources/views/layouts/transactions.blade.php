@@ -15,22 +15,18 @@
             </thead>
             <tbody>
 
-                <tr>
-                    <th scope="row">1</th>
-                    <th>Amit paid Rs. 300/- to Rajesh on 15/10/2019</th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>Amit paid Rs. 300/- to Rajesh on 15/10/2019</th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>Amit paid Rs. 300/- to Rajesh on 15/10/2019</th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>Amit paid Rs. 300/- to Rajesh on 15/10/2019</th>
-                </tr>
+                @forelse ($data as $item)
+                    <tr>
+                        <th scope="row">{{$item->transaction_id}}</th>
+                        <th>{{$item->from_user}} paid Rs. {{$item->transaction_amount}}/- to {{$item->to_user}} on {{$item->transaction_date}} </th>
+                    </tr>
+                @empty
+                    <tr>
+                        <th>No Data Found</th>
+                    </tr>
+                @endforelse
+                
+
 
 
             </tbody>

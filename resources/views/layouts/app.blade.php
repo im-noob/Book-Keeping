@@ -41,10 +41,10 @@
                                 <a class="nav-link" href="{{url('/userList')}}">User List </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{url('/transactions')}}">Upload CSV</a>
+                            <a class="nav-link" href="{{url('/uploadCSV')}}">Upload CSV</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{url('/uploadCSV')}}">Transactions</a>
+                            <a class="nav-link" href="{{url('/transactions')}}">Transactions</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('logout') }}"

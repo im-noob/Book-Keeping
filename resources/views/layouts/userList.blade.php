@@ -39,34 +39,28 @@
             </thead>
             <tbody>
 
+              @forelse ($data as $item)
                 <tr>
-                    <th scope="row">1</th>
-                    <th>aaravonly4you</th>
-                    <th>aaravonly4you@gmail.com</th>
-                    <th><button type="button" class="btn btn-primary update_btn" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button></th>
-                    <th><button type="button" class="btn btn-danger">Delete</button></th>
+                    <th scope="row">{{$item->id}}</th>
+                    <th>{{$item->user_name}}</th>
+                    <th>{{$item->email}} </th>
+                    <th>
+                      <button type="button" id="" class="btn btn-primary update_btn update_button" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button>
+                    </th>
+                    <th>
+                        <form method="DELETE" action="{{url('/userList')}}/{{$item->id}}">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </th>
+                    
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>aaravonly4you</th>
-                    <th>aaravonly4you@gmail.com</th>
-                    <th><button type="button" class="btn btn-primary update_btn" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button></th>
-                    <th><button type="button" class="btn btn-danger">Delete</button></th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>aaravonly4you</th>
-                    <th>aaravonly4you@gmail.com</th>
-                    <th><button type="button" class="btn btn-primary update_btn" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button></th>
-                    <th><button type="button" class="btn btn-danger">Delete</button></th>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>aaravonly4you</th>
-                    <th>aaravonly4you@gmail.com</th>
-                    <th><button type="button" class="btn btn-primary update_btn" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button></th>
-                    <th><button type="button" class="btn btn-danger">Delete</button></th>
-                </tr>
+              @empty
+                  <tr>
+                    <th>No Data Found</th>
+                  </tr>
+              @endforelse
+                
+                
 
 
             </tbody>

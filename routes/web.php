@@ -22,9 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //My Routes
 
 //For User List
-Route::get('/userList', function () {
-    return view('layouts.userList');
-})->middleware('auth');
+// Route::get('/userList', function () {
+//     return view('layouts.userList');
+// })->middleware('auth');
 
 
 // for transaction 
@@ -37,3 +37,6 @@ Route::get('uploadCSV', function () {
     return view('layouts.uploadCSV');
 })->middleware('auth');
 
+
+Route::resource('userList', 'userList_c');
+Route::resource('transactions', 'transactions_c');
