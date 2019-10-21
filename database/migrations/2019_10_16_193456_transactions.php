@@ -17,8 +17,8 @@ class Transactions extends Migration
             $table->bigIncrements('transaction_id');
             $table->unsignedBigInteger('from_user_id');
             $table->unsignedBigInteger('to_user_id');
-            $table->foreign('from_user_id')->references('user_id')->on('users');
-            $table->foreign('to_user_id')->references('user_id')->on('users');
+            $table->foreign('from_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('to_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->double('transaction_amount',10,2);
             $table->timestamp('transaction_date');
         });

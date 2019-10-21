@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('userList')
+
+    
     <section>
       <button class="bt btn-secondry btn-block btn-lg mt-4" data-toggle="modal" data-target="#create_button_modal">Create User</button>
     </section>
@@ -48,7 +50,9 @@
                       <button type="button" id="" class="btn btn-primary update_btn update_button" data-toggle="modal" data-target="#Update_Button_Modal_1">Update</button>
                     </th>
                     <th>
-                        <form method="DELETE" action="{{url('/userList')}}/{{$item->id}}">
+                        <form method="POST" action="{{url('/userList')}}/{{$item->id}}"> 
+                          @method("DELETE")
+                          @csrf
                           <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </th>

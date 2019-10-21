@@ -14,6 +14,7 @@ class userList_c extends Controller
      */
     public function index()
     {
+        echo "index";
         return view('layouts.userList',["data"=>userList::all()]);
     }
 
@@ -24,7 +25,7 @@ class userList_c extends Controller
      */
     public function create()
     {
-        //
+        echo "create";
     }
 
     /**
@@ -35,7 +36,7 @@ class userList_c extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo "store";
     }
 
     /**
@@ -46,7 +47,7 @@ class userList_c extends Controller
      */
     public function show(userList $userList)
     {
-        
+        echo "show";
     }
 
     /**
@@ -57,7 +58,7 @@ class userList_c extends Controller
      */
     public function edit(userList $userList)
     {
-        //
+        echo "edit";
     }
 
     /**
@@ -69,7 +70,7 @@ class userList_c extends Controller
      */
     public function update(Request $request, userList $userList)
     {
-        //
+        echo "update";
     }
 
     /**
@@ -80,7 +81,9 @@ class userList_c extends Controller
      */
     public function destroy(userList $userList)
     {
+        echo "distory";
         $userList->delete();
+        // return view('layouts.userList',["data"=>userList::all()]);
         return redirect()->route('userList.index')->with('success','Deleted Successfully');
     }
 }

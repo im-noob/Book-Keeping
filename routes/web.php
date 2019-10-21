@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
     return view('home');
 });
@@ -28,9 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // for transaction 
-Route::get('transactions', function () {
-    return view('layouts.transactions');
-})->middleware('auth');
+// Route::get('transactions', function () {
+//     return view('layouts.transactions');
+// })->middleware('auth');
 
 //for Upload csv
 Route::get('uploadCSV', function () {
@@ -38,5 +38,5 @@ Route::get('uploadCSV', function () {
 })->middleware('auth');
 
 
-Route::resource('userList', 'userList_c');
-Route::resource('transactions', 'transactions_c');
+Route::resource('userList', 'userList_c')->middleware('auth');
+Route::resource('transactions', 'transactions_c')->middleware('auth');
