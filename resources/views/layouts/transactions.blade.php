@@ -25,9 +25,6 @@
                         <th>No Data Found</th>
                     </tr>
                 @endforelse
-                
-
-
 
             </tbody>
 
