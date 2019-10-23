@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\userList;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class userList_c extends Controller
 {
@@ -14,7 +15,6 @@ class userList_c extends Controller
      */
     public function index()
     {
-        echo "index";
         return view('layouts.userList',["data"=>userList::all()]);
     }
 
@@ -25,7 +25,7 @@ class userList_c extends Controller
      */
     public function create()
     {
-        echo "create";
+
     }
 
     /**
@@ -36,7 +36,15 @@ class userList_c extends Controller
      */
     public function store(Request $request)
     {
-        echo "store";
+        $userlist = new userList;
+
+        $userlist->user_name = $request->name;
+        $userlist->email = $request->email;
+        $userlist->password = Hash::make($request->password);
+
+        $userlist->save();
+
+        return redirect()->route('userList.index')->with('success','Created Successfully.');
     }
 
     /**
@@ -47,7 +55,7 @@ class userList_c extends Controller
      */
     public function show(userList $userList)
     {
-        echo "show";
+
     }
 
     /**
@@ -58,7 +66,6 @@ class userList_c extends Controller
      */
     public function edit(userList $userList)
     {
-        echo "edit";
     }
 
     /**
@@ -70,7 +77,12 @@ class userList_c extends Controller
      */
     public function update(Request $request, userList $userList)
     {
-        echo "update";
+        $userList->user_name = $request->name;
+        $userList->email = $request->email;
+        $userList->password = Hash::make($request->password);
+        $userList->save();
+
+        return redirect()->route('userList.index')->with('success','Updated Successfully');
     }
 
     /**
@@ -81,7 +93,6 @@ class userList_c extends Controller
      */
     public function destroy(userList $userList)
     {
-        echo "distory";
         $userList->delete();
         // return view('layouts.userList',["data"=>userList::all()]);
         return redirect()->route('userList.index')->with('success','Deleted Successfully');
