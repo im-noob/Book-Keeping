@@ -66,6 +66,7 @@ class userList_c extends Controller
      */
     public function edit(userList $userList)
     {
+        dd($userList);
     }
 
     /**
@@ -77,6 +78,8 @@ class userList_c extends Controller
      */
     public function update(Request $request, userList $userList)
     {
+        dd($userList);
+        return;
         $userList->user_name = $request->name;
         $userList->email = $request->email;
         $userList->password = Hash::make($request->password);
@@ -93,6 +96,8 @@ class userList_c extends Controller
      */
     public function destroy(userList $userList)
     {
+        dd($userList);
+        return;
         $userList->delete();
         // return view('layouts.userList',["data"=>userList::all()]);
         return redirect()->route('userList.index')->with('success','Deleted Successfully');

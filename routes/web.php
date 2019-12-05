@@ -40,3 +40,8 @@ Route::get('uploadCSV', function () {
 
 Route::resource('userList', 'userList_c')->middleware('auth');
 Route::resource('transactions', 'transactions_c')->middleware('auth');
+
+
+Route::get('test', function () {
+    return view('layouts.test');
+});

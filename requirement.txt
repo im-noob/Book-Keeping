@@ -1,0 +1,129 @@
+Book-keeping System (Prototype)
+Consider two tables: 
+- Users table
+	- user_id
+	- user_name
+	- email
+	- password
+	
+	  
+- Transactions table
+	- transaction_id
+	- from_user_id (foreign key to user_id)
+	- to_user_id (foreign key to user_id)
+	- transaction_amount (double)
+	- transaction_date (timestamp)
+	
+System Description:
+    • Login enabled system
+    
+    • A page which shows all the users in the system. 
+
+
+    • You should be able to create / update / delete user accounts
+
+ 
+    • Create a CSV file (manually) with the following columns in it:
+		(from_user_id, to_user_id, transaction_amount, transaction_date)
+    • Create a page which will accept the CSV file as input
+    • Read and process the uploaded CSV file and create records in `transactions` table
+    • Create a page which would fetch all the records from `transactions` table and 
+    will show the information in the following way (assuming the users name to be as shown below):
+			
+
+    1. Amit paid Rs. 300/- to Rajesh on 15/10/2019
+    2. Rajesh paid Rs. 15,000/- to Naresh on 15/10/2019
+    3. Ajit paid Rs. 700/- to Naresh on 15/10/2019
+    4. Naresh paid Rs. 100/- to Amit on 15/10/2019
+    5. ….
+    6. ….
+    7. ….
+
+
+Bonus points, if:
+You can create a report which would show the total amount of all the transactions in a day. So for example:
+
+Date
+Transaction Total
+
+14/10/2019
+Rs. 6,200/-
+15/10/2019
+Rs. 15,300/-
+.....
+.....
+.....
+.....
+.....
+.....
+						
+
+Double bonus points, if:
+You can create the following report, date wise and user wise:
+
+Date
+User
+Total Amount Paid
+Total Amount Received
+Ledger Value
+14/10/2019
+Amit
+400
+
+1000
+600
+14/10/2019
+Naresh
+3000
+700
+-2300
+
+…
+
+…
+…
+…
+…
+…
+…
+…
+…
+
+…
+  15/10/2019
+
+Amit
+
+
+300
+
+100
+
+-200
+  15/10/2019
+
+Rajesh
+
+
+15000
+
+0
+
+-1500
+  15/10/2019
+
+Ajit
+
+
+700
+
+0
+
+-700
+15/10/2019
+Naresh
+100
+        15000
+14,900
+
+(Note: see the same yellow highlighting on page 1)
