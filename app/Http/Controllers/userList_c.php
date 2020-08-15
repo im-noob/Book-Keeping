@@ -96,8 +96,8 @@ class userList_c extends Controller
      */
     public function destroy(userList $userList)
     {
-        dd($userList);
-        return;
+        // dd($userList);
+        // return;
         $userList->delete();
         // return view('layouts.userList',["data"=>userList::all()]);
         return redirect()->route('userList.index')->with('success','Deleted Successfully');
